@@ -8,7 +8,7 @@ void removecomments(char input[], char output[], int maxline);
 
 main() {
 	char input[MAXSTRING] = "";
-	char output[MAXLINE] = "";
+	char output[MAXSTRING] = "";
 	int c = 0;
 	int i = 0;
 	
