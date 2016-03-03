@@ -199,10 +199,10 @@ void clear (void)		/* clear the stack */
 		pop();
 }
 
-void store (double, char)
+void store (double, char)	/* store value from top of stack to variable */
 {
 }
 
-double load (char)
+double load (char)		/* load the value of a variable */
 {
 }
