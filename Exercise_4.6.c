@@ -10,6 +10,7 @@
 #define MAXOP 100	/* max size of operand or operator */
 #define NUMBER '0'	/* signal that a number was found */
 #define MAXVAL 100	/* maximum depth of val stack */
+#define MAXREC 26	/* maximum number of variable memories */
 
 int getop(char []);
 void push(double);
@@ -18,9 +19,12 @@ double printtop (void);
 void duplicate (void);
 void swap (void);
 void clear (void);
+void store (double, char);
+double load (char);
 
 int sp = 0;
 double val[MAXVAL];	/* value stack */
+char record[MAXREC];	/* memories for variable */
 
 /* reverse Polish calculator */
 main()
@@ -193,4 +197,12 @@ void clear (void)		/* clear the stack */
 	double aux;
 	while (sp > 0)
 		pop();
+}
+
+void store (double, char)
+{
+}
+
+double load (char)
+{
 }
