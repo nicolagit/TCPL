@@ -19,7 +19,7 @@ double printtop (void);
 void duplicate (void);
 void swap (void);
 void clear (void);
-void store (double, char);
+void store (char);
 double load (char);
 
 int sp = 0;
@@ -180,7 +180,6 @@ void duplicate (void)		/* duplicates the value in the top position */
 	aux = pop();
 	push(aux);
 	push(aux);
-
 }
 
 void swap (void)		/* swap the 2 values in the top position */
@@ -199,10 +198,12 @@ void clear (void)		/* clear the stack */
 		pop();
 }
 
-void store (double, char)	/* store value from top of stack to variable */
+void store (char var)	/* store value from top of stack to variable */
 {
+	record[var-'a'] = pop();
 }
 
-double load (char)		/* load the value of a variable */
+double load (char var)		/* load the value of a variable */
 {
+	return record[var-'a'];
 }
