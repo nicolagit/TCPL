@@ -35,51 +35,57 @@ main()
 
 	while ((type = getop(s)) != EOF) {
 		switch (type) {
-		case NUMBER:
+		case NUMBER:	/* add number to stack */
 			push(atof(s));
 			break;
-		case '+':
+		case '+':	/* sum */
 			push(pop() + pop());
 			break;
-		case '*':
+		case '*':	/* multiply */
 			push(pop() * pop());
 			break;
-		case '-':
+		case '-':	/* subtract */
 			op2 = pop();
 			push(pop() - op2);
 			break;
-		case '/':
+		case '/':	/* divide */
 			op2 = pop();
 			if (op2 != 0.0)
 				push(pop() / op2);
 			else
 				printf("error: zero divisor\n");
 			break;
-		case '%':
+		case '%':	/* modulus */
 			op2 = pop();
 			push((int)pop() % (int)op2);
 			break;
-		case '!':
+		case '!':	/* print top of stack */
 			printf("top of stack: %g\n", printtop());
 			break;
-		case '@':
+		case '@':	/* duplicate */
 			duplicate();
 			break;
-		case '#':
+		case '#':	/* swap */
 			swap();
 			break;
-		case '&':
+		case '&':	/* clear stack */
 			clear();
 			break;
-		case '(':
+		case '(':	/* sine */
 			push(sin(pop()));
 			break;
-		case '^':
+		case '^':	/* base-e exponential */
 			push(exp(pop()));
 			break;
-		case ')':
+		case ')':	/* power function */
 			op2 = pop();
 			push(pow(op2,pop()));
+			break;
+		case '=':	/* load top value to a variable */
+			load();
+			break;
+		case 'isascii(number)':	/* store */
+			store(number);
 			break;
 		case '\n':
 			printf("\t%.8g\n", pop());
