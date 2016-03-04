@@ -59,25 +59,25 @@ main()
 			op2 = pop();
 			push((int)pop() % (int)op2);
 			break;
-		case 'p':
+		case '!':
 			printf("top of stack: %g\n", printtop());
 			break;
-		case 'd':
+		case '@':
 			duplicate();
 			break;
-		case 's':
+		case '#':
 			swap();
 			break;
-		case 'c':
+		case '&':
 			clear();
 			break;
-		case 'q':
+		case '(':
 			push(sin(pop()));
 			break;
-		case 'w':
+		case '^':
 			push(exp(pop()));
 			break;
-		case 'e':
+		case ')':
 			op2 = pop();
 			push(pow(op2,pop()));
 			break;
