@@ -9,6 +9,7 @@
 
 #define MAXOP 100	/* max size of operand or operator */
 #define NUMBER '0'	/* signal that a number was found */
+#define ASCII '1'	/* signal that a letter was found */
 #define MAXVAL 100	/* maximum depth of val stack */
 #define MAXREC 26	/* maximum number of variable memories */
 
@@ -25,9 +26,10 @@ double load (char);
 int sp = 0;
 double val[MAXVAL];	/* value stack */
 char record[MAXREC];	/* memories for variable */
+char letter;		/* variable position */
 
 /* reverse Polish calculator */
-main()
+int main()
 {
 	int type;
 	double op2;
@@ -37,6 +39,8 @@ main()
 		switch (type) {
 		case NUMBER:	/* add number to stack */
 			push(atof(s));
+			break;
+		case ASCII:	/* add a letter to letter_stack (in getop) */
 			break;
 		case '+':	/* sum */
 			push(pop() + pop());
@@ -81,11 +85,11 @@ main()
 			op2 = pop();
 			push(pow(op2,pop()));
 			break;
-		case '=':	/* load top value to a variable */
-			load();
+		case '_':	/* load top value to a variable */
+			push(record[letter-'a']);
 			break;
-		case 'isascii(number)':	/* store */
-			store(number);
+		case '=':	/* store */
+			record[letter-'a'] = pop();
 			break;
 		case '\n':
 			printf("\t%.8g\n", pop());
@@ -131,6 +135,9 @@ int getop (char s[])
 	while ((s[0] = c = getch()) == ' ' || c == '\t')
 			;
 	s[1] = '\0';
+	if (isascii(c))		/* ascii for record */
+		letter = c;
+		return ASCII;
 	if (!isdigit(c) && c != '.' && c != '-')
 		return c;	/* not a number */
 	i = 0;
@@ -202,14 +209,4 @@ void clear (void)		/* clear the stack */
 	double aux;
 	while (sp > 0)
 		pop();
-}
-
-void store (char var)	/* store value from top of stack to variable */
-{
-	record[var-'a'] = pop();
-}
-
-double load (char var)		/* load the value of a variable */
-{
-	return record[var-'a'];
 }
