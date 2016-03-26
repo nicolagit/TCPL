@@ -135,7 +135,7 @@ int getop (char s[])
 	while ((s[0] = c = getch()) == ' ' || c == '\t')
 			;
 	s[1] = '\0';
-	if (isascii(c))		/* ascii for record */
+	if (isalpha(c))		/* ascii for record */
 		letter = c;
 		return ASCII;
 	if (!isdigit(c) && c != '.' && c != '-')
