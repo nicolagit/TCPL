@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>	/* for atof() */
-#include "calc.h"
+#include "Exercise_4.11_calc.h"
 
 #define MAXOP 100	/* max size of operand or operator */
 
