@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "calc.h"
+#include "Exercise_4.11_calc.h"
 
 #define MAXVAL 100	/* maximum depth of val stack */
 

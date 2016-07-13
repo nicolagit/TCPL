@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
-#include "calc.h"
+#include "Exercise_4.11_calc.h"
 
 /* getop: get next operator or numeric operand */
 int getop (char s[])
