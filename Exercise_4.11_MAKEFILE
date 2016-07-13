@@ -1,0 +1,6 @@
+CC = gcc
+FILES = Exercise_4.11_calc.h Exercise_4.11_getch.c Exercise_4.11_getop.c Exercise_4.11_main.c Exercise_4.11_stack.c
+OUT_EXE = a.out
+
+build: $(FILES)
+	$(CC) -o $(OUT_EXE) $(FILES)
