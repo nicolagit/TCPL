@@ -1,3 +1,7 @@
+/* Modify _getop_ so that it doesn't need to use _ungetch_. Hint:
+ * use an internal _static_ variable.
+ * /
+
 #include <stdio.h>
 #include <stdlib.h>	/* for atof() */
 #include "Exercise_4.11_calc.h"
