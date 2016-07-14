@@ -5,10 +5,12 @@
 /* getop: get next operator or numeric operand */
 int getop (char s[])
 {
-	int i,c;
+	int i;
+	int static c;
 
-	while ((s[0] = c = getch()) == ' ' || c == '\t')
-			;
+	if (c == ' ' || c == '\t' || c == EOF)
+		while ((s[0] = c = getch()) == ' ' || c == '\t')
+				;
 	s[1] = '\0';
 	if (!isdigit(c) && c != '.')
 		return c;	/* not a number */
@@ -20,7 +22,5 @@ int getop (char s[])
 		while (isdigit(s[++i] = c = getch()))
 			;
 	s[i] = '\0';
-	if (c != EOF)
-		ungetch(c);
 	return NUMBER;
 }

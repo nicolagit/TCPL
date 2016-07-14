@@ -1,6 +1,7 @@
 /* Modify _getop_ so that it doesn't need to use _ungetch_. Hint:
  * use an internal _static_ variable.
- * /
+ */
+
 
 #include <stdio.h>
 #include <stdlib.h>	/* for atof() */
@@ -9,7 +10,7 @@
 #define MAXOP 100	/* max size of operand or operator */
 
 /* reverse Polish calculator */
-main()
+int main()
 {
 	int type;
 	double op2;
